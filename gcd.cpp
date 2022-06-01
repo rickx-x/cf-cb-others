@@ -1,30 +1,26 @@
-
-// C++ program to find GCD of two numbers
 #include <iostream>
 using namespace std;
-// Recursive function to return gcd of a and b
-int gcd(int a, int b)
-{
-    // Everything divides 0
-    if (a == 0)
-       return b;
-    if (b == 0)
-       return a;
-  
-    // base case
-    if (a == b)
+#define ll long long 
+
+int gcd(ll a,ll b){
+    if(b==0){
+
         return a;
-  
-    // a is greater
-    if (a > b)
-        return gcd(a-b, b);
-    return gcd(a, b-a);
+    
+    }
+
+    return gcd(b,a%b);
+
 }
-  
-// Driver program to test above function
-int main()
-{
-    int a = 147, b = 84;
-    cout<<"GCD of "<<a<<" and "<<b<<" is "<<gcd(a, b);
-    return 0;
+int main() {
+
+    ll a,b;
+    cin>>a>>b;
+
+
+    cout<<gcd(a,b);
+
+    
+    //we know gcd(a,b)*lcm(a,b) = a*b
+    //so lcm(a,b) = (a*b)/gcd(a,b)
 }
